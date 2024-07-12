@@ -108,13 +108,13 @@ public class Registro_pacientes extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                new Registro_pacientes();
+                new Busqueda_pacientes();
             }
         });
     }
 
     private void registrarPaciente(String historial, String nombre, String apellido, String telefono, String edad, String enfermedad) throws SQLException {
-        Connection conn = Database.getConnection();
+        Connection conn = DatabaseConnection.getConnection();
         String sql = "INSERT INTO PACIENTE (n_historial_clinico, nombre, apellido, telefono, edad, descripcion_enfermedad) VALUES (?, ?, ?, ?, ?, ?)";
         PreparedStatement statement = conn.prepareStatement(sql);
         statement.setString(1, historial);

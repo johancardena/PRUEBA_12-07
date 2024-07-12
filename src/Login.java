@@ -66,7 +66,7 @@ public class Login extends JFrame {
     }
 
     private boolean verificarUsuario(String username, String password) throws SQLException {
-        Connection conn = Database.getConnection();
+        Connection conn = DatabaseConnection.getConnection();
         String sql = "SELECT * FROM USUARIO WHERE username = ? AND password = ?";
         PreparedStatement statement = conn.prepareStatement(sql);
         statement.setString(1, username);
@@ -82,7 +82,4 @@ public class Login extends JFrame {
         return userExists;
     }
 
-    public static void main(String[] args) {
-        new Login();
-    }
 }

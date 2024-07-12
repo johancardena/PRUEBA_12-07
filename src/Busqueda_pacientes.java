@@ -74,7 +74,7 @@ public class Busqueda_pacientes extends JFrame {
     }
 
     private void buscarPaciente(String cedula) throws SQLException {
-        Connection conn = Database.getConnection();
+        Connection conn = DatabaseConnection.getConnection();
         String sql = "SELECT * FROM PACIENTE WHERE cedula = ?";
         PreparedStatement statement = conn.prepareStatement(sql);
         statement.setString(1, cedula);
