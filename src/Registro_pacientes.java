@@ -114,7 +114,7 @@ public class Registro_pacientes extends JFrame {
     }
 
     private void registrarPaciente(String historial, String nombre, String apellido, String telefono, String edad, String enfermedad) throws SQLException {
-        Connection conn = DatabaseConnection.getConnection();
+        Connection conn = Database.getConnection();
         String sql = "INSERT INTO PACIENTE (n_historial_clinico, nombre, apellido, telefono, edad, descripcion_enfermedad) VALUES (?, ?, ?, ?, ?, ?)";
         PreparedStatement statement = conn.prepareStatement(sql);
         statement.setString(1, historial);

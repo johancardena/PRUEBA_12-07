@@ -66,7 +66,7 @@ public class Login extends JFrame {
     }
 
     private boolean verificarUsuario(String username, String password) throws SQLException {
-        Connection conn = DatabaseConnection.getConnection();
+        Connection conn = Database.getConnection();
         String sql = "SELECT * FROM USUARIO WHERE username = ? AND password = ?";
         PreparedStatement statement = conn.prepareStatement(sql);
         statement.setString(1, username);
